@@ -24,9 +24,6 @@ export function ControllableParameters() {
 	];
 }
 
-//Plugin Version: Built for Protocol V1.0.5
-
-// Die IDs der LEDs (0 bis 86)
 const vKeys = [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 
     20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 
@@ -35,10 +32,8 @@ const vKeys = [
     80, 81, 82, 83, 84, 85, 86
 ];
 
-// Namen für das Layout-Menü (einfach durchnummeriert)
-const vKeyNames = vKeys.map(k => `L${k}`); // Erzeugt automatisch L0,
+const vKeyNames = vKeys.map(k => `L${k}`);
 
-// Die Koordinaten (aus deiner JSON extrahiert)
 const vKeyPositions = [
     [8.5, 6.0], [10.8, 6.0], [12.0, 6.0], [13.2, 6.0], [14.4, 6.0], [15.6, 6.0], [16.8, 6.0], 
     [16.8, 5.0], [16.8, 4.0], [16.8, 3.0], [16.8, 2.0], [15.6, 0.0], [14.4, 0.0], [13.2, 0.0], 
@@ -274,7 +269,6 @@ function createSolidColorArray(color) {
 }
 
 function grabColors(overrideColor) {
-    // ... (dein restlicher Code für Forced Color)
     
     const rgbdata = new Array(vKeys.length * 3).fill(0);
 
@@ -283,7 +277,7 @@ function grabColors(overrideColor) {
         const iPxY = vKeyPositions[iIdx][1];
         const color = device.color(iPxX, iPxY);
 
-        const iLedIdx = iIdx * 3; // Wichtig: Hier iIdx nutzen, nicht vKeys[iIdx]
+        const iLedIdx = iIdx * 3;
         rgbdata[iLedIdx] = color[0];
         rgbdata[iLedIdx+1] = color[1];
         rgbdata[iLedIdx+2] = color[2];
